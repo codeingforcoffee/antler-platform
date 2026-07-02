@@ -425,3 +425,84 @@
   --container-width-md: calc(var(--spacing) * 204);
   --container-width-lg: calc(var(--spacing) * 256);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Antler Platform — brand identity (粉紫 / pink-purple, antler)
+   Own tokens, prefixed --ap-* so they never collide with shadcn.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --ap-ink: #130a20; /* deep aubergine-black base            */
+  --ap-plum: #1d1030; /* raised surface                       */
+  --ap-orchid: #b06bff; /* primary purple                       */
+  --ap-rose: #ff5fc4; /* pink accent (粉)                     */
+  --ap-indigo: #7a5cff; /* deep end of the signature gradient   */
+  --ap-lilac: #e7ccff; /* soft lavender                        */
+  --ap-body: #c8b4e6; /* muted lavender for body copy         */
+  --ap-haze: #f6eeff; /* near-white heading text              */
+  --ap-mauve: #9e86c9; /* dim caption text                     */
+  --ap-grad: linear-gradient(135deg, #ff5fc4 0%, #b06bff 52%, #7a5cff 100%);
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans);
+}
+
+.font-brand-mono {
+  font-family:
+    var(--font-brand-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* Antler signature: strokes draw themselves, tips pop, mark breathes */
+.ap-branch {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ap-draw 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes ap-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ap-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  opacity: 0;
+  animation: ap-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes ap-pop {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ap-glow {
+  animation: ap-breathe 6s ease-in-out infinite;
+}
+@keyframes ap-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-branch {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .ap-node {
+    animation: none;
+    transform: scale(1);
+    opacity: 1;
+  }
+  .ap-glow {
+    animation: none;
+    opacity: 0.8;
+  }
+}

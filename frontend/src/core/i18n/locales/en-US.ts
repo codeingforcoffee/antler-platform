@@ -57,6 +57,7 @@ export const enUS: Translations = {
   home: {
     docs: "Docs",
     blog: "Blog",
+    contact: "Contact author",
   },
 
   // Welcome

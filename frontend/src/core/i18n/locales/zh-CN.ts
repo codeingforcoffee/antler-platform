@@ -14,7 +14,7 @@ import type { Translations } from "./types";
 export const zhCN: Translations = {
   // Locale meta
   locale: {
-    localName: "中文",
+    localName: "简体中文",
   },
 
   // Common
@@ -57,6 +57,7 @@ export const zhCN: Translations = {
   home: {
     docs: "文档",
     blog: "博客",
+    contact: "联系作者",
   },
 
   // Welcome

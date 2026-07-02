@@ -45,6 +45,7 @@ export interface Translations {
   home: {
     docs: string;
     blog: string;
+    contact: string;
   };
 
   // Welcome
