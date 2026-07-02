@@ -8,7 +8,7 @@ import { Section } from "../section";
 export function SkillsSection({ className }: { className?: string }) {
   return (
     <Section
-      className={cn("h-[calc(100vh-64px)] w-full bg-white/2", className)}
+      className={cn("h-[calc(100vh-64px)] w-full bg-[#b06bff]/5", className)}
       title="Agent Skills"
       subtitle={
         <div>

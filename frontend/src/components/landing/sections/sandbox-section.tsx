@@ -41,7 +41,7 @@ export function SandboxSection({ className }: { className?: string }) {
             <TypingAnimation delay={2400}>
               $ write game.py --lines 156
             </TypingAnimation>
-            <AnimatedSpan delay={3200} className="text-blue-500">
+            <AnimatedSpan delay={3200} className="text-[var(--ap-orchid)]">
               ✔ Written 156 lines
             </AnimatedSpan>
 
@@ -71,26 +71,27 @@ export function SandboxSection({ className }: { className?: string }) {
         {/* Right: Description */}
         <div className="w-full flex-1 space-y-6">
           <div className="space-y-4">
-            <p className="text-sm font-medium tracking-wider text-purple-400 uppercase">
+            <p className="text-sm font-medium tracking-wider text-[var(--ap-orchid)] uppercase">
               Open-source
             </p>
-            <h2 className="text-4xl font-bold tracking-tight lg:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-[var(--ap-haze)] lg:text-5xl">
               <a
                 href="https://github.com/agent-infra/sandbox"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="transition-colors hover:text-[var(--ap-orchid)]"
               >
                 AIO Sandbox
               </a>
             </h2>
           </div>
 
-          <div className="space-y-4 text-lg text-zinc-400">
+          <div className="space-y-4 text-lg text-[var(--ap-body)]">
             <p>
               We recommend using{" "}
               <a
                 href="https://github.com/agent-infra/sandbox"
-                className="underline"
+                className="text-[var(--ap-lilac)] underline transition-colors hover:text-[var(--ap-haze)]"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -103,19 +104,19 @@ export function SandboxSection({ className }: { className?: string }) {
 
           {/* Feature Tags */}
           <div className="flex flex-wrap gap-3 pt-4">
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="rounded-full border border-[#b06bff]/25 bg-[#b06bff]/10 px-4 py-2 text-sm text-[var(--ap-lilac)]">
               Isolated
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="rounded-full border border-[#b06bff]/25 bg-[#b06bff]/10 px-4 py-2 text-sm text-[var(--ap-lilac)]">
               Safe
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="rounded-full border border-[#b06bff]/25 bg-[#b06bff]/10 px-4 py-2 text-sm text-[var(--ap-lilac)]">
               Persistent
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="rounded-full border border-[#b06bff]/25 bg-[#b06bff]/10 px-4 py-2 text-sm text-[var(--ap-lilac)]">
               Mountable FS
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="rounded-full border border-[#b06bff]/25 bg-[#b06bff]/10 px-4 py-2 text-sm text-[var(--ap-lilac)]">
               Long-running
             </span>
           </div>
