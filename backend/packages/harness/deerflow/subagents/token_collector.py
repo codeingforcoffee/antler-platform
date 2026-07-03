@@ -47,6 +47,14 @@ class SubagentTokenCollector(BaseCallbackHandler):
                     total_tk = input_tk + output_tk
                 if total_tk <= 0:
                     continue
+                # Prompt-cache hits (needed for cache-aware cost accounting)
+                details = usage_dict.get("input_token_details") or {}
+                cache_read_tk = 0
+                if isinstance(details, Mapping):
+                    try:
+                        cache_read_tk = max(int(details.get("cache_read") or 0), 0)
+                    except (TypeError, ValueError):
+                        cache_read_tk = 0
                 # Capture the model that actually produced this response so the
                 # parent journal can bucket tokens by real model rather than the
                 # lead agent's resolved model
@@ -63,6 +71,7 @@ class SubagentTokenCollector(BaseCallbackHandler):
                         "input_tokens": input_tk,
                         "output_tokens": output_tk,
                         "total_tokens": total_tk,
+                        "cache_read_tokens": cache_read_tk,
                     }
                 )
                 return
