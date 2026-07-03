@@ -1,6 +1,6 @@
 "use client";
 
-import { BotIcon, MessagesSquare } from "lucide-react";
+import { BotIcon, GaugeIcon, MessagesSquare } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -74,6 +74,17 @@ export function WorkspaceNavChatList() {
               </TooltipContent>
             </Tooltip>
           )}
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton
+            isActive={pathname === "/workspace/console"}
+            asChild
+          >
+            <Link className="text-muted-foreground" href="/workspace/console">
+              <GaugeIcon />
+              <span>{t.sidebar.console}</span>
+            </Link>
+          </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>

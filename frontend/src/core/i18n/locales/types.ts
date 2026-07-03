@@ -122,6 +122,52 @@ export interface Translations {
     agents: string;
     agentsDisabledTooltip: string;
     channels: string;
+    console: string;
+  };
+
+  // Console (operations dashboard)
+  console: {
+    title: string;
+    subtitle: string;
+    statTokens: string;
+    statTokensHint: string;
+    statCost: string;
+    statCostHint: string;
+    pricingNotConfigured: string;
+    statRuns: string;
+    statRunsActive: string;
+    statRunsFailed: string;
+    statThreads: string;
+    statAgents: string;
+    usageTitle: string;
+    usageSubtitle: string;
+    byModel: string;
+    cacheHit: string;
+    noUsage: string;
+    runsTitle: string;
+    runsSubtitle: string;
+    colStatus: string;
+    colThread: string;
+    colModel: string;
+    colTokens: string;
+    colCost: string;
+    colDuration: string;
+    colTime: string;
+    statusPending: string;
+    statusRunning: string;
+    statusSuccess: string;
+    statusError: string;
+    statusTimeout: string;
+    statusInterrupted: string;
+    cancel: string;
+    untitledThread: string;
+    empty: string;
+    emptyHint: string;
+    pagePrev: string;
+    pageNext: string;
+    unavailableTitle: string;
+    unavailableHint: string;
+    loadFailed: string;
   };
 
   // Agents
