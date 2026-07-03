@@ -113,6 +113,16 @@ export const zhTW: Translations = {
     followupConfirmAppend: "附加並傳送",
     followupConfirmReplace: "取代並傳送",
     suggestionPlaceholderRequired: "傳送前請先填寫建議範本中的佔位內容。",
+    goalCommandDescription: "設定、查看或清除目前目標",
+    goalLabel: "目標",
+    goalContinuing: "續跑中 {count}/{max}",
+    goalContinuationTooltip:
+      "為達成目標已自動續跑 {count}/{max} 次，達上限後自動停止",
+    goalSet: "目標已設定。",
+    goalCleared: "目標已清除。",
+    goalNone: "目前沒有目標。",
+    goalActive: "目前目標：{goal}",
+    goalFailed: "目標指令執行失敗。",
     suggestions: [
       {
         suggestion: "寫作",
