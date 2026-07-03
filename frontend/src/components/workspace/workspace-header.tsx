@@ -4,6 +4,7 @@ import { MessageSquarePlus } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { AntlerGlyph } from "@/components/brand/antler-glyph";
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -29,19 +30,24 @@ export function WorkspaceHeader({ className }: { className?: string }) {
       >
         {state === "collapsed" ? (
           <div className="group-has-data-[collapsible=icon]/sidebar-wrapper:-translate-y flex w-full cursor-pointer items-center justify-center">
-            <div className="text-primary block pt-1 font-serif group-hover/workspace-header:hidden">
-              DF
+            <div className="block pt-1 group-hover/workspace-header:hidden">
+              <AntlerGlyph animated={false} className="h-5" />
             </div>
             <SidebarTrigger className="hidden pl-2 group-hover/workspace-header:block" />
           </div>
         ) : (
           <div className="flex items-center justify-between gap-2">
             {env.NEXT_PUBLIC_STATIC_WEBSITE_ONLY === "true" ? (
-              <Link href="/" className="text-primary ml-2 font-serif">
+              <Link
+                href="/"
+                className="text-primary font-display ml-2 flex items-center gap-1.5 font-semibold tracking-tight"
+              >
+                <AntlerGlyph animated={false} className="h-4" />
                 Antler Platform
               </Link>
             ) : (
-              <div className="text-primary ml-2 cursor-default font-serif">
+              <div className="text-primary font-display ml-2 flex cursor-default items-center gap-1.5 font-semibold tracking-tight">
+                <AntlerGlyph animated={false} className="h-4" />
                 Antler Platform
               </div>
             )}

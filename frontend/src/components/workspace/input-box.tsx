@@ -991,13 +991,13 @@ export function InputBox({
                       <GraduationCapIcon className="size-3" />
                     )}
                     {context.mode === "ultra" && (
-                      <RocketIcon className="size-3 text-[#dabb5e]" />
+                      <RocketIcon className="size-3 text-[var(--ap-orchid)]" />
                     )}
                   </div>
                   <div
                     className={cn(
                       "truncate text-xs font-normal",
-                      context.mode === "ultra" ? "golden-text" : "",
+                      context.mode === "ultra" ? "brand-text" : "",
                     )}
                   >
                     {(context.mode === "flash" && t.inputBox.flashMode) ||
@@ -1116,12 +1116,13 @@ export function InputBox({
                           <RocketIcon
                             className={cn(
                               "mr-2 size-4",
-                              context.mode === "ultra" && "text-[#dabb5e]",
+                              context.mode === "ultra" &&
+                                "text-[var(--ap-orchid)]",
                             )}
                           />
                           <div
                             className={cn(
-                              context.mode === "ultra" && "golden-text",
+                              context.mode === "ultra" && "brand-text",
                             )}
                           >
                             {t.inputBox.ultraMode}

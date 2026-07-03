@@ -222,73 +222,77 @@
   }
 }
 
+/* Workspace themes are the quiet side of the Antler identity: the landing
+   page is the stage, the workspace is the study. Both live in the same
+   pink-purple world (hue ≈300) — light is a lavender mist, dark reuses the
+   landing's ink/plum/orchid tokens (--ap-*, defined below) directly. */
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.9855 0.0098 87.47);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0.0098 87.47);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0.0098 87.47);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.9455 0.0098 87.47);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0.0098 87.47);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.94 0.0098 87.47);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: oklch(0.982 0.008 300);
+  --foreground: oklch(0.19 0.03 310);
+  --card: oklch(0.996 0.004 300);
+  --card-foreground: oklch(0.19 0.03 310);
+  --popover: oklch(0.996 0.004 300);
+  --popover-foreground: oklch(0.19 0.03 310);
+  --primary: oklch(0.5 0.21 297);
+  --primary-foreground: oklch(0.97 0.01 305);
+  --secondary: oklch(0.945 0.015 300);
+  --secondary-foreground: oklch(0.25 0.05 305);
+  --muted: oklch(0.965 0.012 300);
+  --muted-foreground: oklch(0.5 0.05 300);
+  --accent: oklch(0.935 0.02 300);
+  --accent-foreground: oklch(0.25 0.05 305);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0.0098 87.47);
-  --input: oklch(0.88 0.0098 87.47);
-  --ring: transparent;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.965 0.0098 87.47);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0.0098 87.47);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.925 0.0098 87.47);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0.0098 87.47);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border: oklch(0.915 0.02 300);
+  --input: oklch(0.875 0.025 300);
+  --ring: oklch(0.68 0.17 305);
+  --chart-1: oklch(0.72 0.21 345);
+  --chart-2: oklch(0.58 0.22 285);
+  --chart-3: oklch(0.7 0.11 180);
+  --chart-4: oklch(0.8 0.13 70);
+  --chart-5: oklch(0.67 0.09 300);
+  --sidebar: oklch(0.962 0.012 300);
+  --sidebar-foreground: oklch(0.19 0.03 310);
+  --sidebar-primary: oklch(0.5 0.21 297);
+  --sidebar-primary-foreground: oklch(0.97 0.01 305);
+  --sidebar-accent: oklch(0.925 0.02 300);
+  --sidebar-accent-foreground: oklch(0.25 0.05 305);
+  --sidebar-border: oklch(0.915 0.02 300);
+  --sidebar-ring: oklch(0.68 0.17 305);
 }
 
 .dark {
-  --background: oklch(0.24 0.0036 106.64);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.238 0.0036 106.64);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0.0036 106.64);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(1 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.3 0.0036 106.64);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0.0036 106.64);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.32 0.0036 106.64);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: var(--ap-ink);
+  --foreground: var(--ap-haze);
+  --card: var(--ap-plum);
+  --card-foreground: var(--ap-haze);
+  --popover: #241537;
+  --popover-foreground: var(--ap-haze);
+  --primary: var(--ap-orchid);
+  --primary-foreground: var(--ap-ink);
+  --secondary: #2a1b42;
+  --secondary-foreground: var(--ap-lilac);
+  --muted: #241537;
+  --muted-foreground: var(--ap-mauve);
+  --accent: #2f1d4a;
+  --accent-foreground: var(--ap-lilac);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: transparent;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.245 0.0036 106.64);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.29 0.0036 106.64);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: color-mix(in srgb, var(--ap-lilac) 14%, transparent);
+  --input: color-mix(in srgb, var(--ap-lilac) 18%, transparent);
+  --ring: var(--ap-orchid);
+  --chart-1: oklch(0.76 0.19 345);
+  --chart-2: oklch(0.64 0.2 285);
+  --chart-3: oklch(0.75 0.11 180);
+  --chart-4: oklch(0.83 0.12 70);
+  --chart-5: oklch(0.72 0.08 300);
+  --sidebar: #170d27;
+  --sidebar-foreground: var(--ap-haze);
+  --sidebar-primary: var(--ap-orchid);
+  --sidebar-primary-foreground: var(--ap-ink);
+  --sidebar-accent: #251740;
+  --sidebar-accent-foreground: var(--ap-lilac);
+  --sidebar-border: color-mix(in srgb, var(--ap-lilac) 10%, transparent);
+  --sidebar-ring: var(--ap-orchid);
   font-weight: 300;
 }
 
@@ -375,8 +379,10 @@
     filter: blur(60px);
   }
 
-  .golden-text {
-    background: linear-gradient(135deg, #d19e1d 0%, #e9c665 50%, #e3a812 100%);
+  /* Brand gradient text — marks "ultra" mode and other full-power moments.
+     (Replaces the upstream golden-text; gold was DeerFlow's identity.) */
+  .brand-text {
+    background: var(--ap-grad);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,14 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
+import { AntlerGlyph } from "@/components/brand/antler-glyph";
 import { useI18n } from "@/core/i18n/hooks";
 import { cn } from "@/lib/utils";
 
 import { AuroraText } from "../ui/aurora-text";
-
-let waved = false;
 
 function WelcomeDescription({ children }: { children: string }) {
   return (
@@ -30,13 +29,10 @@ export function Welcome({
   const isUltra = useMemo(() => mode === "ultra", [mode]);
   const colors = useMemo(() => {
     if (isUltra) {
-      return ["#efefbb", "#e9c665", "#e3a812"];
+      return ["#FF5FC4", "#B06BFF", "#7A5CFF"];
     }
     return ["var(--color-foreground)"];
   }, [isUltra]);
-  useEffect(() => {
-    waved = true;
-  }, []);
   return (
     <div
       className={cn(
@@ -44,16 +40,14 @@ export function Welcome({
         className,
       )}
     >
+      {/* The antler regrows on every mount — each new chat starts with the
+          orchestration tree branching out. */}
+      <AntlerGlyph className="mb-1 h-12" />
       <div className="max-w-full text-2xl font-bold">
         {searchParams.get("mode") === "skill" ? (
           `✨ ${t.welcome.createYourOwnSkill} ✨`
         ) : (
-          <div className="flex max-w-full flex-wrap items-center justify-center gap-2">
-            <div className={cn("inline-block", !waved ? "animate-wave" : "")}>
-              {isUltra ? "🚀" : "👋"}
-            </div>
-            <AuroraText colors={colors}>{t.welcome.greeting}</AuroraText>
-          </div>
+          <AuroraText colors={colors}>{t.welcome.greeting}</AuroraText>
         )}
       </div>
       {searchParams.get("mode") === "skill" ? (
