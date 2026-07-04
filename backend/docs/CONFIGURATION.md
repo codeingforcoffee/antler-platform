@@ -220,6 +220,30 @@ tool_groups:
   - name: bash         # Shell command execution
 ```
 
+### Scheduler
+
+The scheduled-task MVP adds a scheduler section to `config.yaml`:
+
+```yaml
+scheduler:
+  enabled: false
+  poll_interval_seconds: 5
+  lease_seconds: 120
+  max_concurrent_runs: 3
+  min_once_delay_seconds: 60
+```
+
+Notes:
+
+- `enabled: false` keeps background polling off by default.
+- `max_concurrent_runs` is a global cap on active scheduled runs (queued/running run rows); each poll cycle claims only into the remaining budget, so long runs accumulating across cycles cannot exceed it.
+- All scheduler fields are restart-required; edits need a Gateway restart.
+- Multi-worker deployments (`GATEWAY_WORKERS > 1`) must use the Postgres database backend. SQLite silently ignores row-level locks, so multiple workers can double-fire the same task.
+- The MVP supports thread reuse and fresh-thread-per-run execution modes.
+- The MVP supports only `once` and `cron`.
+- Manual trigger uses the same scheduled-task resource and run lifecycle.
+- Scheduled task definitions and task-run history are persisted in the application database.
+
 ### Tools
 
 Configure specific tools available to the agent:
@@ -455,6 +479,7 @@ If you rebuild the runtime from scratch instead of extending the published image
 
 - `sandbox.get_context()`, including `home_dir`
 - `shell.exec_command(...)`
+- `bash.exec(...)` — only exercised for per-command environment injection (skills that declare `required-secrets`). The `/v1/bash/*` routes exist since upstream all-in-one-sandbox `1.9.3`; on older images (including a `latest` tag still frozen on the `1.0.0.x` line) DeerFlow fails fast with an actionable error instead of surfacing the raw 404. Pin `sandbox.image` to `1.9.3` or newer (e.g. `1.11.0`) and recreate the sandbox container to use `required-secrets` with the AIO sandbox.
 - `file.read_file(...)`
 - `file.write_file(...)`, including base64 writes for binary content
 - streamed `file.download_file(...)`
