@@ -296,23 +296,18 @@ async def console_stats(request: Request) -> ConsoleStatsResponse:
                     ).where(*run_where)
                 )
             ).all()
-            total_cost = round(
-                sum(
-                    cost
-                    for model_name, input_tokens, output_tokens, usage_map in cost_rows
-                    if (
-                        cost := _run_cost(
-                            pricing,
-                            model_name=model_name,
-                            total_input_tokens=input_tokens,
-                            total_output_tokens=output_tokens,
-                            token_usage_by_model=usage_map,
-                        )
-                    )
-                    is not None
-                ),
-                6,
-            )
+            cost_sum = 0.0
+            for model_name, input_tokens, output_tokens, usage_map in cost_rows:
+                cost = _run_cost(
+                    pricing,
+                    model_name=model_name,
+                    total_input_tokens=input_tokens,
+                    total_output_tokens=output_tokens,
+                    token_usage_by_model=usage_map,
+                )
+                if cost is not None:
+                    cost_sum += cost
+            total_cost = round(cost_sum, 6)
 
     try:
         # Filesystem scan; resolves the effective user internally (AuthMiddleware
