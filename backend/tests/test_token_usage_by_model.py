@@ -548,3 +548,20 @@ class TestJournalCacheRead:
         records = collector.snapshot_records()
         assert len(records) == 1
         assert records[0]["cache_read_tokens"] == 20
+
+    def test_collector_omits_cache_read_key_when_no_cache_hits(self) -> None:
+        from deerflow.subagents.token_collector import SubagentTokenCollector
+
+        collector = SubagentTokenCollector("subagent:general-purpose")
+        collector.on_llm_end(
+            _make_llm_response(
+                usage={"input_tokens": 30, "output_tokens": 6, "total_tokens": 36},
+                model_name="sub-m",
+            ),
+            run_id=uuid4(),
+        )
+        records = collector.snapshot_records()
+        assert len(records) == 1
+        # Sparse record shape: no explicit 0 when the provider reported no
+        # cache hits (record_external_llm_usage_records treats absent as 0).
+        assert "cache_read_tokens" not in records[0]
